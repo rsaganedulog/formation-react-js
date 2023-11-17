@@ -13,6 +13,9 @@ export default function Document() {
                 <li>
                     <Link href="/login">Login</Link>
                 </li>
+                <li>
+                    <Link href="/search">Search</Link>
+                </li>
             </ul>
             <Main/>
             <NextScript/>

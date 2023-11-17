@@ -2,6 +2,7 @@ import {useState} from "react";
 import { useRouter } from 'next/router';
 
 export default () => {
+
     const router = useRouter();
     const [user, setUser] = useState({
         email: 'email',
