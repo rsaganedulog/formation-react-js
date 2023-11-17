@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 export default () => {
     const router = useRouter();
     const [user, setUser] = useState({
-        email: '',
-        password: ''
+        email: 'email',
+        password: 'password'
     });
     const [isError, setIsError] = useState(false);
 
@@ -15,7 +15,7 @@ export default () => {
 
         try {
             if (user.email === 'email' && user.password === 'password' ) {
-                await router.push('/about')
+                await router.push('/profile')
             } else {
                 setIsError(true)
             }
@@ -40,8 +40,8 @@ export default () => {
                 E-mail : <b>email</b><br/>
                 Password : <b>password</b>
                 <hr/>
-                <input name="email" type="text" onChange={handleChange}/>
-                <input name="password" type="password" onChange={handleChange}/>
+                <input name="email" type="text" onChange={handleChange} value={user.email}/>
+                <input name="password" type="password" onChange={handleChange} value={user.password}/>
                 {isError && <p>Les identifiants sont incorrects</p>}
                 <button>Se connecter</button>
             </form>
