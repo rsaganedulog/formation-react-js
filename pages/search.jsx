@@ -1,8 +1,9 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import UserTable from "../components/UserTable";
 
 export default () => {
     const [users, setUsers] = useState({})
+    const [reloadUser, setReloadUsers] = useState(false)
 
     async function loadUsers() {
         try {
@@ -20,12 +21,25 @@ export default () => {
 
     useEffect(() => {
         loadUsers()
-    }, [])
+    }, [reloadUser])
 
+
+    const handleChange = event => {
+        const inputValue = event.target.value.toLowerCase();
+        const result = users.filter(user => user.name.toLowerCase().includes(inputValue));
+        setUsers(result);
+    };
+
+
+    const handleClick = () => {
+        setReloadUsers(!reloadUser)
+    };
 
     return (
         <>
             <h1>Recherche :</h1>
+            <input type="text" onChange={handleChange}/>
+            <button onClick={handleClick}>RESET</button>
 
             {users.length > 0 && <UserTable users={users}/>}
         </>
