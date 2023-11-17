@@ -1,12 +1,21 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import {Head, Html, Main, NextScript} from 'next/document'
+import Link from 'next/link'
 
 export default function Document() {
     return (
         <Html>
-            <Head />
+            <Head/>
             <body>
-            <Main />
-            <NextScript />
+            <ul>
+                <li>
+                    <Link href="/">Home</Link>
+                </li>
+                <li>
+                    <Link href="/login">Login</Link>
+                </li>
+            </ul>
+            <Main/>
+            <NextScript/>
             </body>
         </Html>
     )
